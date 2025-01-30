@@ -156,4 +156,4 @@ The API documentation is available at `/api-docs` when the server is running. It
 
 ## License
 
-This project is licensed under the ISC License. See the `LICENSE` file for more details.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
