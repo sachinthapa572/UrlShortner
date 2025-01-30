@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv/config';
 
 import routes from './routes/routes.js';
+import { swaggerUi, specs } from './swaggerConfig.js';
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.use('/test', (req, res) => {
 });
 
 app.use('/api/v1', routes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 // global error handler
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
