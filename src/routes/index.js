@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { redirect, stats } from '../controllers/index.js';
+import { Router } from "express";
+import { redirect, stats } from "../controllers/index.js";
 
 const router = Router();
 // routes
@@ -23,7 +23,7 @@ const router = Router();
  *       404:
  *         description: URL not found
  */
-router.get('/:urlId', redirect);
+router.get("/:urlId", redirect);
 
 /**
  * @swagger
@@ -48,6 +48,6 @@ router.get('/:urlId', redirect);
  *       500:
  *         description: Server error
  */
-router.post('/stats', stats);
+router.post("/stats", stats);
 
 export default router;

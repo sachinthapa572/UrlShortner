@@ -1,9 +1,9 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 const urlIdSchema = z
   .string()
-  .min(4, 'URL too short')
-  .regex(/^[a-zA-Z0-9_-]+$/, 'Invalid character(s)');
+  .min(4, "URL too short")
+  .regex(/^[a-zA-Z0-9_-]+$/, "Invalid character(s)");
 
 const validateUrlId = (urlId) => {
   try {

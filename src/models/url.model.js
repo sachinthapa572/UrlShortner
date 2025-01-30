@@ -21,11 +21,11 @@ const UrlSchema = new Schema(
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
     status: {
       type: String,
-      default: 'public',
+      default: "public",
     },
     visitHistory: [
       {
@@ -65,6 +65,6 @@ const UrlSchema = new Schema(
   }
 );
 
-const UrlModel = model('url', UrlSchema);
+const UrlModel = model("url", UrlSchema);
 
 export default UrlModel;

@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema } from "mongoose";
 
 const UserSchema = new Schema(
   {
@@ -25,21 +25,21 @@ const UserSchema = new Schema(
     urls: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'url',
+        ref: "url",
       },
     ],
     last_shortened: {
       type: Schema.Types.ObjectId,
-      ref: 'url',
+      ref: "url",
     },
     role: {
       type: String,
-      default: 'user',
+      default: "user",
     },
   },
   { timestamps: true }
 );
 
-const userModel = model('User', UserSchema);
+const userModel = model("User", UserSchema);
 
 export default userModel;

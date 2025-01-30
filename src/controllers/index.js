@@ -1,5 +1,5 @@
-import UrlModel from '../models/url.model.js';
-import userModel from '../models/user.model.js';
+import UrlModel from "../models/url.model.js";
+import userModel from "../models/user.model.js";
 
 async function redirect(req, res) {
   console.log(req.params);
@@ -10,10 +10,10 @@ async function redirect(req, res) {
       url.visits++;
       url.save();
       return res.redirect(307, url.originalUrl);
-    } else res.status(404).json('Not found');
+    } else res.status(404).json("Not found");
   } catch (err) {
     console.log(err);
-    res.status(500).json('Server Error');
+    res.status(500).json("Server Error");
   }
 }
 
@@ -24,7 +24,7 @@ async function stats(req, res) {
     return res.json({ urls, users });
   } catch (err) {
     console.log(err);
-    res.status(500).json('Server Error');
+    res.status(500).json("Server Error");
   }
 }
 

@@ -15,17 +15,20 @@ The URL Shortener API is a web service that allows users to shorten long URLs in
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/sachinthapa572/UrlShortnerApp.git
    cd UrlShortnerApp
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Create a `.env` file in the root directory and add the following environment variables:
+
    ```env
    PORT=3001
    MONGO_DB=<your_mongodb_connection_string>
@@ -42,6 +45,7 @@ The URL Shortener API is a web service that allows users to shorten long URLs in
 ## Environment Setup
 
 Ensure you have the following installed on your machine:
+
 - Node.js (v14 or higher)
 - npm (v6 or higher)
 - MongoDB (local or cloud instance)
@@ -53,16 +57,19 @@ The API documentation is available at `/api-docs` when the server is running. It
 ## Usage Instructions
 
 1. Register a new user:
+
    ```bash
    curl -X POST http://localhost:3001/api/v1/register -H "Content-Type: application/json" -d '{"username": "johndoe", "email": "johndoe@example.com", "password": "password123"}'
    ```
 
 2. Login as a user:
+
    ```bash
    curl -X POST http://localhost:3001/api/v1/login -H "Content-Type: application/json" -d '{"email": "johndoe@example.com", "password": "password123"}'
    ```
 
 3. Shorten a URL as a guest:
+
    ```bash
    curl -X POST http://localhost:3001/api/v1/shorten-guest -H "Content-Type: application/json" -d '{"mainUrl": "https://example.com"}'
    ```
@@ -103,6 +110,7 @@ The API documentation is available at `/api-docs` when the server is running. It
 ### Register a new user
 
 **Request:**
+
 ```json
 {
   "username": "johndoe",
@@ -112,6 +120,7 @@ The API documentation is available at `/api-docs` when the server is running. It
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -128,6 +137,7 @@ The API documentation is available at `/api-docs` when the server is running. It
 ### Shorten a URL as a guest
 
 **Request:**
+
 ```json
 {
   "mainUrl": "https://example.com"
@@ -135,6 +145,7 @@ The API documentation is available at `/api-docs` when the server is running. It
 ```
 
 **Response:**
+
 ```json
 {
   "originalUrl": "https://example.com",

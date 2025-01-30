@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { login, register } from '../controllers/auth.js';
+import { Router } from "express";
+import { login, register } from "../controllers/auth.js";
 
 const authrouter = Router();
 //routes
@@ -62,7 +62,7 @@ const authrouter = Router();
  *               type: string
  *               example: Email already exists
  */
-authrouter.post('/register', register);
+authrouter.post("/register", register);
 
 /**
  * @swagger
@@ -131,6 +131,6 @@ authrouter.post('/register', register);
  *               type: string
  *               example: userModel with that email does not exist
  */
-authrouter.post('/login', login);
+authrouter.post("/login", login);
 
 export default authrouter;

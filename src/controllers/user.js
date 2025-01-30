@@ -1,17 +1,17 @@
-import UrlModel from '../models/url.model.js';
-import userModel from '../models/user.model.js';
-import { validateUrlId } from '../validation/urlValidation.js';
+import UrlModel from "../models/url.model.js";
+import userModel from "../models/user.model.js";
+import { validateUrlId } from "../validation/urlValidation.js";
 
 const getUser = async (req, res) => {
   let user = await userModel
     .findById(req.params.userId)
-    .select('-password')
-    .populate('last_shortened');
+    .select("-password")
+    .populate("last_shortened");
   return res.json(user);
 };
 
 const getUserUrls = async (req, res) => {
-  if (req.params.userId !== req.auth._id) return res.status(401).send('Unauthorized');
+  if (req.params.userId !== req.auth._id) return res.status(401).send("Unauthorized");
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
@@ -21,11 +21,11 @@ const getUserUrls = async (req, res) => {
       user: req.params.userId,
     })
       .populate({
-        path: 'user',
-        select: 'username email',
+        path: "user",
+        select: "username email",
       })
       .sort({ _id: -1 })
-      .select('-createdAt -updatedAt ')
+      .select("-createdAt -updatedAt ")
       .skip(skip)
       .limit(limit)
       .exec();
@@ -39,11 +39,11 @@ const getUserUrls = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Something went wrong. Try again');
+    return res.status(500).send("Something went wrong. Try again");
   }
 };
 
-const   editUrl = async (req, res) => {
+const editUrl = async (req, res) => {
   const { urlId, newUrlId, userId } = req.body;
 
   const validationError = validateUrlId(newUrlId);
@@ -64,15 +64,15 @@ const   editUrl = async (req, res) => {
         .find({
           _id: userId,
         })
-        .select('-password')
-        .populate('last_shortened')
+        .select("-password")
+        .populate("last_shortened")
         .exec();
 
       res.json({ url, user });
     }
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Something went wrong. Try again');
+    return res.status(500).send("Something went wrong. Try again");
   }
 };
 

@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { shortenGuest, shortenUser } from '../controllers/shorten.js';
-import { requireSignin } from '../controllers/auth.js';
+import { Router } from "express";
+import { shortenGuest, shortenUser } from "../controllers/shorten.js";
+import { requireSignin } from "../controllers/auth.js";
 
 const srouter = Router();
 
@@ -53,7 +53,7 @@ const srouter = Router();
  *       500:
  *         description: Server error
  */
-srouter.post('/shorten-guest', shortenGuest);
+srouter.post("/shorten-guest", shortenGuest);
 
 /**
  * @swagger
@@ -130,6 +130,6 @@ srouter.post('/shorten-guest', shortenGuest);
  *       500:
  *         description: Server error
  */
-srouter.post('/shorten-user', requireSignin, shortenUser);
+srouter.post("/shorten-user", requireSignin, shortenUser);
 
 export default srouter;

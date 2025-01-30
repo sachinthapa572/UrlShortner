@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { editUrl, getUser, getUserUrls } from '../controllers/user.js';
-import { requireSignin } from '../controllers/auth.js';
+import { Router } from "express";
+import { editUrl, getUser, getUserUrls } from "../controllers/user.js";
+import { requireSignin } from "../controllers/auth.js";
 
 const urouter = Router();
 
@@ -54,7 +54,7 @@ const urouter = Router();
  *               type: string
  *               example: Unauthorized
  */
-urouter.get('/user/:userId', requireSignin, getUser);
+urouter.get("/user/:userId", requireSignin, getUser);
 
 /**
  * @swagger
@@ -125,7 +125,7 @@ urouter.get('/user/:userId', requireSignin, getUser);
  *       500:
  *         description: Server error
  */
-urouter.get('/urls/:userId', requireSignin, getUserUrls);
+urouter.get("/urls/:userId", requireSignin, getUserUrls);
 
 /**
  * @swagger
@@ -212,6 +212,6 @@ urouter.get('/urls/:userId', requireSignin, getUserUrls);
  *       500:
  *         description: Server error
  */
-urouter.post('/edit-url', requireSignin, editUrl);
+urouter.post("/edit-url", requireSignin, editUrl);
 
 export default urouter;
