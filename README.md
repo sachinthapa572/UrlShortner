@@ -79,6 +79,34 @@ The API documentation is available at `/api-docs` when the server is running. It
    curl -X POST http://localhost:3001/api/v1/shorten-user -H "Content-Type: application/json" -H "Authorization: Bearer <your_jwt_token>" -d '{"mainUrl": "https://example.com", "userId": "<your_user_id>"}'
    ```
 
+## Docker Setup
+
+To build and run the application using Docker, follow these steps:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t url-shortener-app .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 3001:3001 --env-file .env url-shortener-app
+   ```
+
+## Docker Compose Setup
+
+To manage multi-container Docker applications, use Docker Compose:
+
+1. Start the services:
+   ```bash
+   docker-compose up
+   ```
+
+2. Stop the services:
+   ```bash
+   docker-compose down
+   ```
+
 ## Available Endpoints
 
 ### Auth
